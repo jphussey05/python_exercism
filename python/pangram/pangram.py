@@ -1,12 +1,6 @@
 def is_pangram(sentence):
-    alphas = list('abcdefghijklmnopqrstuvwxyz')
+    alphas = set('abcdefghijklmnopqrstuvwxyz')
+    diff = alphas - set(sentence.lower())
 
-    for char in sentence:
-        char = char.lower()
-        if char in alphas:
-            alphas.remove(char)
-
-            if len(alphas) == 0:
-                return True
+    return True if len(diff) == 0 else False
         
-    return False
